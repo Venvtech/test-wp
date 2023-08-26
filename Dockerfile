@@ -13,7 +13,7 @@ RUN apt update && \
     mariadb-client
 
 # Replace php.ini
-COPY php.ini /usr/local/etc/php
+#COPY php.ini /usr/local/etc/php
 
 # Install WP-CLI
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
@@ -21,5 +21,5 @@ RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.ph
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp && \
     # Remove old php.ini files (wihtout creating new image)
-    rm /usr/local/etc/php/php.ini-development && \
-    rm /usr/local/etc/php/php.ini-production
+    #rm /usr/local/etc/php/php.ini-development && \
+    #rm /usr/local/etc/php/php.ini-production
