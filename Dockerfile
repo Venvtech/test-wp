@@ -3,6 +3,8 @@
 
 FROM wordpress:latest
 
+COPY custom.ini $PHP_INI_DIR/conf.d/
+
 # APT Update/Upgrade, then install packages we need
 RUN apt update && \
     apt upgrade -y && \
