@@ -51,5 +51,7 @@ jobs:
           ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY }}
           GITHUB_SHA: ${{ github.sha }}
         run: |
-          docker context create ecs ecs-context --from-env
-          docker --context ecs-context compose up
+          docker context create ecs wordpress --from-env
+          docker context ls
+          docker context use wordpress
+          docker compose --file docker-compose.yaml up
